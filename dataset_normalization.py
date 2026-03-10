@@ -8,10 +8,6 @@ columns_needed = [
     "game_seconds_remaining",
     "score_differential",
     "qtr",
-    "posteam",
-    "play_type",
-    "wp",
-    "epa"
 ]
 
 df = df[columns_needed].copy()
@@ -26,6 +22,6 @@ df["go_for_it"] = df["play_type"].apply(
 
 df = df.dropna()
 
-df.to_csv("4th_down_model_data.csv", index=False)
+df.to_csv("4th_down_model_data2.csv", index=False)
 
 print("CSV successfully saved.")
