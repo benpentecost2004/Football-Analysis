@@ -19,10 +19,5 @@ def predict_go_for_it(ydstogo, yardline_100, time_remaining, score_diff, qtr):
     print(f"Probability team goes for it: {probability*100:.2f}%")
     print(f"Should the team go for it? {decision}")
 
-predict_go_for_it(
-    ydstogo=2,
-    yardline_100=90,
-    time_remaining=30,
-    score_diff=+1,
-    qtr=4
-)
+    return decision, probability
+
