@@ -93,7 +93,7 @@ if st.button("Predict 4th Down Decision"):
         # Render the bar
         st.markdown(progress_html, unsafe_allow_html=True)
 
-st.header("4th Down Decision Prediction")
+st.header("Win Probability Prediction")
 down = st.number_input(
     "Down",
     min_value=1,
