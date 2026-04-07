@@ -53,7 +53,6 @@ if st.button("Predict 4th Down Decision"):
     if None in (ydstogo, yardline_100, time_remaining, score_diff, qtr):
         st.warning("Please fill in all fields.")
     else:
-        # Unpack the two values returned by your model
         decision, probability = predict_go_for_it(
             ydstogo,
             yardline_100,
@@ -62,14 +61,11 @@ if st.button("Predict 4th Down Decision"):
             qtr
         )
         
-        # Convert the decimal probability (e.g., 0.85) to a percentage (85.0)
         prob_percent = probability * 100
         
-        # Display the text results
         st.write(f"**Predicted Decision:** {decision}")
         st.write(f"**Predicted Go-For-It Probability:** {prob_percent:.1f}%")
 
-        # Determine the color based on the percentage
         if prob_percent < 20:
             bar_color = "#ff4b4b" # Red
         elif 20 <= prob_percent <= 40:
@@ -79,10 +75,8 @@ if st.button("Predict 4th Down Decision"):
         else:
             bar_color = "#00c04b" # Green
             
-        # Ensure width doesn't break CSS if the model outputs slightly below 0 or above 100
         safe_width = max(0, min(prob_percent, 100))
 
-        # Create custom HTML progress bar
         progress_html = f"""
         <div style="width: 100%; background-color: #e6e6e6; border-radius: 5px; margin-top: 10px; margin-bottom: 20px;">
           <div style="width: {safe_width}%; height: 24px; background-color: {bar_color}; border-radius: 5px; transition: width 0.5s;">
@@ -90,7 +84,6 @@ if st.button("Predict 4th Down Decision"):
         </div>
         """
         
-        # Render the bar
         st.markdown(progress_html, unsafe_allow_html=True)
 
 st.header("Win Probability Prediction")
@@ -141,7 +134,6 @@ if st.button("Predict Win Probability"):
     else:
         score_time_interaction = score_diff_win * time_remaining_win
 
-        # Get the result from your model
         result = predict_win_probability(
             down,
             yards_to_go,
@@ -151,14 +143,10 @@ if st.button("Predict Win Probability"):
             score_time_interaction
         )
 
-        # NOTE: If your model returns a decimal (e.g., 0.75), multiply by 100. 
-        # If it already returns a whole number (e.g., 75.0), you can remove the "* 100".
         win_prob_percent = result * 100 
 
-        # Display the text result
         st.write(f"**Predicted Win Probability:** {win_prob_percent:.1f}%")
 
-        # Determine the color based on the percentage
         if win_prob_percent < 20:
             bar_color = "#ff4b4b" # Red
         elif 20 <= win_prob_percent <= 40:
@@ -168,10 +156,8 @@ if st.button("Predict Win Probability"):
         else:
             bar_color = "#00c04b" # Green
             
-        # Ensure width doesn't break CSS if the model outputs slightly below 0 or above 100
         safe_width = max(0, min(win_prob_percent, 100))
 
-        # Create custom HTML progress bar
         progress_html = f"""
         <div style="width: 100%; background-color: #e6e6e6; border-radius: 5px; margin-top: 10px; margin-bottom: 20px;">
           <div style="width: {safe_width}%; height: 24px; background-color: {bar_color}; border-radius: 5px; transition: width 0.5s;">
@@ -179,5 +165,4 @@ if st.button("Predict Win Probability"):
         </div>
         """
         
-        # Render the bar
         st.markdown(progress_html, unsafe_allow_html=True)

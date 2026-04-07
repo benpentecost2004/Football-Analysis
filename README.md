@@ -98,5 +98,9 @@ Potential real-world applications include:
 
 ### How to run
 	- In the terminal, run cd src/
-	- run the command "pip3 install pandas sklearn joblib streamlit"
+	- run the command "pip3 install pandas scikit-learn joblib streamlit"
 	- run the command streamlit run app.py
+
+### Presentation Video
+
+https://youtu.be/NovndukwONE
