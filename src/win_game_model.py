@@ -5,10 +5,10 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
 import joblib
 
-df = pd.read_csv("data/model_data.csv", low_memory=False)
+df = pd.read_csv("win_probability_model_data.csv", low_memory=False)
 
-X = df.drop("win_probability", axis=1)
-y = df["win_probability"]
+X = df.drop("won_game", axis=1)
+y = df["won_game"]
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
