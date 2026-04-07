@@ -95,3 +95,8 @@ Potential real-world applications include:
 	•	Pandas
 	•	Scikit-learn
 	•	NFL play-by-play dataset (nflfastR)
+
+### How to run
+	- In the terminal, run cd src/
+	- run the command "pip3 install pandas sklearn joblib streamlit"
+	- run the command streamlit run app.py
